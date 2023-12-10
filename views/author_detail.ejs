@@ -1,0 +1,14 @@
+<h1><%= title %></h1>
+<p><%= author.first_name %> <%= author.family_name %></p>
+<p><%= author.date_of_birth_formatted %> - <%= author.date_of_death_formatted %></p>
+
+<h2>Books by <%= author.first_name %> <%= author.family_name %>:</h2>
+<ul>
+    <% books.forEach(book => { %>
+        <li><a href="<%= book.url %>"><%= book.title %></a></li>
+    <% }); %>
+</ul>
+
+
+<a href="/catalog/author/<%= author._id %>/update" class="btn btn-primary">Update Author</a>
+<a href="/catalog/author/<%= author._id %>/delete" class="btn btn-danger">Delete Author</a>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+    <ul>
+      <% authors.forEach(author => { %>
+        <li><a href="/catalog/author/<%= author._id %>"><%= author.first_name %> <%= author.family_name %></a></li>
+      <% }); %>
+    </ul>
+</body>
+</html>

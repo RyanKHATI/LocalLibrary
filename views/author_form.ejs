@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <form method="POST" action="<%= author ? '/catalog/author/' + (author._id ? author._id + '/update' : 'create') : '/catalog/author/create' %>">
+
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" class="form-control" required value="<%= author ? author.first_name : '' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="family_name">Family Name:</label>
+            <input type="text" id="family_name" name="family_name" class="form-control" required value="<%= author ? author.family_name : '' %>">
+        </div>
+
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" required value="<%= author && author.date_of_birth ? author.date_of_birth.toISOString().split('T')[0] : '' %>">
+
+
+        <label for="date_of_death">Date of Death:</label>
+        <input type="date" id="date_of_death" name="date_of_death" value="<%= author && author.date_of_death ? author.date_of_death.toISOString().split('T')[0] : '' %>">
+
+
+        <% if (author && author._id) { %>
+            <button type="submit" class="btn btn-primary">Update Author</button>
+        <% } else { %>
+            <button type="submit" class="btn btn-primary">Create Author</button>
+        <% } %>
+
+    </form>
+</body>
+</html>

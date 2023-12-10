@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+<h1>Delete Author</h1>
+<p>Are you sure you want to delete <%= author.first_name %> <%= author.family_name %>?</p>
+<form method="POST" action="/catalog/author/<%= author._id.toString() %>/delete">
+    <button type="submit">Delete</button>
+    <a href="/catalog/author/<%= author._id %>">Cancel</a>
+</form>
+
+</body>
+</html>
