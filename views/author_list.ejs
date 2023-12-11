@@ -1,14 +1,16 @@
+<%- include('layout') %>
 <!DOCTYPE html>
 <html>
 <head>
   <title><%= title %></title>
 </head>
 <body>
-  <h1><%= title %></h1>
+  <div class="content">
     <ul>
       <% authors.forEach(author => { %>
         <li><a href="/catalog/author/<%= author._id %>"><%= author.first_name %> <%= author.family_name %></a></li>
       <% }); %>
     </ul>
+  </div>
 </body>
 </html>

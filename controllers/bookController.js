@@ -3,8 +3,15 @@ const Author = require('../models/author');
 const async = require('async');
 const mongoose = require('mongoose');
 
-exports.index = function(req, res) {
-    res.render('index', { title: 'Local Library Home' });
+exports.index = async function (req, res, next) {
+  try {
+    const bookCount = await Book.countDocuments({});
+    const authorCount = await Author.countDocuments({});
+    
+    res.render('index', { title: 'Local Library Home', data: { book_count: bookCount, author_count: authorCount } });
+  } catch (err) {
+    next(err);
+  }
 };
 
 exports.book_list = function(req, res, next) {
@@ -133,5 +140,4 @@ exports.book_delete_post = function(req, res, next) {
           next(err);
       });
 };
-
 

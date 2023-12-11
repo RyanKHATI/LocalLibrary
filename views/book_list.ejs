@@ -1,21 +1,23 @@
+<%- include('layout') %>
 <!DOCTYPE html>
 <html>
 <head>
   <title><%= title %></title>
 </head>
 <body>
-  <h1><%= title %></h1>
-  <ul>
-    <% book_list.forEach(function(book) { %>
-      <li>
-        <h3><a href="/catalog/book/<%= book._id %>"><%= book.title %></a></h3>
-        <% if (book.author) { %>
-          <p>Author: <%= book.author.first_name %> <%= book.author.family_name %></p>
-        <% } else { %>
-          <p>Author: Unknown</p>
-        <% } %>
-      </li>
-    <% }); %>
-  </ul>
+  <div class="content">
+    <ul>
+      <% book_list.forEach(function(book) { %>
+        <li>
+          <h3><a href="/catalog/book/<%= book._id %>"><%= book.title %></a></h3>
+          <% if (book.author) { %>
+            <p>Author: <%= book.author.first_name %> <%= book.author.family_name %></p>
+          <% } else { %>
+            <p>Author: Unknown</p>
+          <% } %>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
 </body>
 </html>

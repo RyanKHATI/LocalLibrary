@@ -1,3 +1,4 @@
+<%- include('layout') %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <title><%= title %></title>
 </head>
 <body>
-    <h1><%= title %></h1>
+    <div class="content">
 
     <form method="POST" action="<%= author ? '/catalog/author/' + (author._id ? author._id + '/update' : 'create') : '/catalog/author/create' %>">
 
@@ -20,13 +21,15 @@
             <input type="text" id="family_name" name="family_name" class="form-control" required value="<%= author ? author.family_name : '' %>">
         </div>
 
+        <div class="form-group">
         <label for="date_of_birth">Date of Birth:</label>
         <input type="date" id="date_of_birth" name="date_of_birth" required value="<%= author && author.date_of_birth ? author.date_of_birth.toISOString().split('T')[0] : '' %>">
+        </div>
 
-
+        <div class="form-group">
         <label for="date_of_death">Date of Death:</label>
         <input type="date" id="date_of_death" name="date_of_death" value="<%= author && author.date_of_death ? author.date_of_death.toISOString().split('T')[0] : '' %>">
-
+        </div>
 
         <% if (author && author._id) { %>
             <button type="submit" class="btn btn-primary">Update Author</button>
@@ -35,5 +38,6 @@
         <% } %>
 
     </form>
+    </div>
 </body>
 </html>

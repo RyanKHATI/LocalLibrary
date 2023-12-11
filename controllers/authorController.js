@@ -4,10 +4,10 @@ const async = require('async');
 
 exports.author_list = async function (req, res, next) {
   try {
-      const authors = await Author.find()
-      res.render('author_list', { title: 'Author List', authors });
+    const authors = await Author.find()
+    res.render('author_list', { title: 'Author List', authors });
   } catch (err) {
-      next(err);
+    next(err);
   }
 };
 

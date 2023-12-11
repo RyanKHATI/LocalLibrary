@@ -1,10 +1,11 @@
+<%- include('layout') %>
 <!DOCTYPE html>
 <html>
 <head>
   <title><%= title %></title>
 </head>
 <body>
-  <h1><%= title %></h1>
+  <div class="content">
   
   <form method="post" action="/catalog/book/<%= book._id %>/update">
     <div>
@@ -26,5 +27,6 @@
 
     <button type="submit">Update Book</button>
   </form>
+  </div>
 </body>
 </html>
