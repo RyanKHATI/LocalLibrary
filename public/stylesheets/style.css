@@ -74,7 +74,6 @@ h1 {
 
 .content p {
   font-size: 2em;
-  justify-content: flex-start;
   margin: 2px;
 }
 
@@ -135,6 +134,11 @@ button {
 button:hover {
   background-color: #2B2D42;
   color: #F4FFFD;
+}
+
+.book_name {
+  color: #2B2D42;
+  font-size: 4em;
 }
 
 #summary {
